@@ -112,13 +112,12 @@ section .text-section2{
     background-image: url(https://plus.unsplash.com/premium_photo-1786941170800-e651c05da48f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDMzfENEd3V3WEpBYkV3fHxlbnwwfHx8fHw%3D);
     background-size: cover;
     background-position: center;
-    height: 900px;
+    height: 650px;
     position: relative;
     width: 90%;
     margin-top: 100px;
     margin-left: 5%;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border-radius: 100px;
 }
 
 .image .arrow{
@@ -138,4 +137,70 @@ section .text-section2{
 .arrow i{
     color: white ;
     font-size: 95px
+}
+
+.question{
+    width: 100%;
+    height: 400px;
+    background-color: rgb(228, 255, 117);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 60px;
+} 
+section .question{
+    /* background-color: red; */
+    height: 100px;
+    height: 400px;
+    /* background-color: royalblue; */
+    padding: 20px 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between ;
+}
+
+.question .left-section{
+    height: 100%;
+    width: 700px;
+    padding: 10px 10px;
+    /* background-color: yellow; */
+}
+
+.question .left-section h2{
+    font-size: 55px;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 60px;
+    margin-top: 50px;
+}
+.question .left-section .explore{
+    background-color: black;
+    border: 4px solid #7b7b7b;
+    width: 200px;
+    height: 50px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.question .left-section .explore a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: 200;
+    text-transform: capitalize;
+}
+.question .right-section{
+    height: 100%;
+    width: 700px;
+    /* background-color: red; */
+    padding: 10px 10px;
+}
+.question .right-section p{
+    font-size: 25px;
+    margin-top: 50px;
+    font-weight: 200;
+    text-transform: capitalize;
+    line-height: 35px;
 }
