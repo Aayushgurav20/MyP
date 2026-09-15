@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 *{
     margin: 0;
@@ -11,6 +12,15 @@ html, body{
     width: 100%;
     height: 100%;
 }
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 main{
     width: 100%;
     background-color: rgb(228, 255, 117);
@@ -39,6 +49,22 @@ nav a{
     font-weight: 200;
     text-decoration: none;
     color: black;
+    position: relative;
+}
+nav a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+nav a:hover::after{
+    transform: scaleX(1);
 }
 
 section{
@@ -134,9 +160,21 @@ section .text-section2{
     border: 8px solid #7b7b7b;
 }
 
+.image .arrow:hover{
+    animation: arrowPulse 1.5s ease-in-out infinite;
+}
+.image .arrow:hover i{
+    transform: rotate(20deg);
+}
+@keyframes arrowPulse{
+    0%, 100%{ transform: scale(1); }
+    50%{ transform: scale(1.08); }
+}
+
 .arrow i{
-    color: white ;
-    font-size: 95px
+    color: white;
+    font-size: 95px;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .question{
@@ -151,7 +189,7 @@ section .text-section2{
 section .question{
     /* background-color: red; */
     height: 100px;
-    height: 400px;
+    height: 300px;
     /* background-color: royalblue; */
     padding: 20px 40px;
     display: flex;
@@ -229,7 +267,7 @@ section .question{
     width: 350px;
     background-color: black;
     border-radius: 30px;
-    border: 6px solid #7b7b7b;
+    border: 6px solid rgb(228, 255, 117);
     margin-right: 50px;
     padding: 20px;
 }
@@ -240,7 +278,7 @@ section .question{
     background-color: black;
     /* background-color: rgb(0, 240, 7); */
     border-radius: 30px;
-    border: 6px solid #7b7b7b;
+    border: 6px solid rgb(228, 255, 117);
     margin-right: 50px;
     padding: 20px;
 }
@@ -250,13 +288,13 @@ section .question{
     background-color: black;
     /* background-color: rgb(240, 7, 240); */
     border-radius: 30px;
-    border: 6px solid #7b7b7b;
+    border: 6px solid rgb(228, 255, 117);
     margin-right: 50px;
     padding: 20px;
 }
 
 .img .first-card i{
-    background-color: rgb(250, 249, 249);
+    background-color: rgb(228, 255, 117);
     color: black;
     font-size: 35px;
     border-radius: 20px;
@@ -267,10 +305,10 @@ section .question{
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    border: 4px solid #7b7b7b;
+    border: 4px solid #a3c94f;
 }
 .img .second-card i{
-    background-color: white;
+    background-color: rgb(228, 255, 117);
     color: black;
     font-size: 35px;
     border-radius: 20px;
@@ -281,10 +319,10 @@ section .question{
     align-items: center;
     margin-bottom: 20px;
     justify-content: center;
-    border: 4px solid #7b7b7b;
+    border: 4px solid #a3c94f;
 }
 .img .third-card i{
-    background-color: white;
+    background-color: rgb(228, 255, 117);
     color: black;
     font-size: 35px;
     border-radius: 20px;
@@ -295,7 +333,7 @@ section .question{
     margin-bottom: 20px;
     align-items: center;
     justify-content: center;
-    border: 4px solid #7b7b7b;
+    border: 4px solid #a3c94f;
 }
 
 .img .first-card h2{
@@ -326,8 +364,241 @@ section .question{
 
 .img p{
     margin-top: 20px;
-    color: whitesmoke;
+    color: #e0e0e0;
 }
 .img h2{
     color: white;
+}
+
+.img .first-card,
+.img .second-card,
+.img .third-card{
+    font-family: 'Space Grotesk', sans-serif;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.img .first-card:hover,
+.img .second-card:hover,
+.img .third-card:hover{
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.35),
+                0 0 30px rgba(200, 230, 80, 0.4);
+}
+.img .first-card i,
+.img .second-card i,
+.img .third-card i{
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.img .first-card:hover i,
+.img .second-card:hover i,
+.img .third-card:hover i{
+    transform: scale(1.1) rotate(-10deg);
+}
+
+@property --angle{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.question .left-section .explore{
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.question .left-section .explore:hover{
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.question .left-section .explore::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 60px;
+    padding: 4px;
+    background: conic-gradient(from var(--angle), white 0deg, white 90deg, transparent 90deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+    opacity: 0;
+    pointer-events: none;
+}
+.question .left-section .explore:hover::after{
+    opacity: 1;
+    animation: drawBorder 0.7s ease forwards;
+}
+@keyframes drawBorder{
+    to{ --angle: 360deg; }
+}
+
+#contact{
+    width: 100%;
+    background-color: black;
+    padding: 60px;
+}
+#contact .contact-section{
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+#contact .contact-left{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+#contact .eyebrow{
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgb(228, 255, 117);
+}
+#contact .contact-heading{
+    font-size: 55px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 60px;
+    color: white;
+    margin-top: 15px;
+}
+#contact .contact-description{
+    font-size: 18px;
+    font-weight: 200;
+    color: #d9d9d9;
+    line-height: 26px;
+    max-width: 320px;
+}
+#contact .contact-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+#contact .info-block{
+    width: 45%;
+}
+#contact .info-block h3{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: rgb(228, 255, 117);
+    margin-bottom: 8px;
+}
+#contact .info-block p,
+#contact .info-block a{
+    font-size: 16px;
+    font-weight: 200;
+    color: #e0e0e0;
+    text-decoration: none;
+    line-height: 24px;
+    display: block;
+}
+#contact .info-block a:hover{
+    color: rgb(228, 255, 117);
+}
+#contact .socials{
+    display: flex;
+    gap: 12px;
+}
+#contact .socials i{
+    font-size: 20px;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+#contact .socials i:hover{
+    color: rgb(228, 255, 117);
+}
+#contact .contact-right{
+    width: 50%;
+}
+#contact .contact-form-card{
+    background-color: #1a1a1a;
+    border: 6px solid rgb(228, 255, 117);
+    border-radius: 30px;
+    padding: 40px;
+}
+#contact .form-heading{
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: white;
+}
+#contact .form-description{
+    font-size: 16px;
+    font-weight: 200;
+    color: #d9d9d9;
+    line-height: 24px;
+    margin: 10px 0 30px;
+}
+#contact .form-group{
+    margin-bottom: 20px;
+}
+#contact .form-group input,
+#contact .form-group textarea{
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #7b7b7b;
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: 200;
+    color: white;
+    outline: none;
+}
+#contact .form-group textarea{
+    resize: none;
+    min-height: 80px;
+}
+#contact .form-group input::placeholder,
+#contact .form-group textarea::placeholder{
+    color: #999999;
+}
+#contact .form-group input:focus,
+#contact .form-group textarea:focus{
+    border-bottom-color: rgb(228, 255, 117);
+}
+#contact .sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+#contact .submit-btn{
+    background-color: black;
+    border: 4px solid rgb(228, 255, 117);
+    border-radius: 60px;
+    padding: 12px 28px;
+    color: white;
+    font-size: 18px;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#contact .submit-btn:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 900px){
+    #contact .contact-section{
+        flex-direction: column;
+    }
+    #contact .contact-left,
+    #contact .contact-right{
+        width: 100%;
+    }
 }
