@@ -1,32 +1,127 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
-html, body{
+
+html,
+body {
     width: 100%;
     height: 100%;
     font-family: var(--primary-font-family);
 }
 
 
-:root{
+:root {
     --bg-color: rgb(39, 38, 38);
     --primary-text-color: rgb(223, 223, 223);
     --primary-font-family: 'JetBrains Mono', sans-serif;
-    
+
     /* padding elements */
+    --nav-padding: 10px 20px;
+    --padding-s: 5px;
+    --padding-m: 10px;
+    --padding-l: 15px;
+    --padding-xl: 20px;
+    --padding-xxl: 30px;
 
-    --navbar-padding: 1rem 2rem;
-    
+    /* button */
+    --bg-button-color: rgb(55, 55, 55);
+
+    /* border radius */
+    --border-radius-s: 5px;
+    --border-radius-m: 10px;
+    --border-radius-l: 15px;
+    --border-radius-xl: 20px;
+    --border-radius-xxl: 30px;
+
+    /* section padding */
+    --section-padding: 20px;
+
+    /* pallete color scheme */
+    --molten-lava: #780000ff;
+    --brick-red: #c1121fff;
+    --papaya-whip: #fdf0d5ff;
+    --deep-space-blue: #003049ff;
+    --steel-blue: #669bbcff;
+
+    /* palette usage map
+       --papaya-whip      -> page + column background, button text, heading text
+       --deep-space-blue  -> body text, "Kanban" logo
+       --brick-red        -> "Add New Task" button bg, In Progress heading bar
+       --molten-lava      -> button hover bg, Done heading bar
+       --steel-blue       -> column border, To Do heading bar
+    */
 }
 
-body{
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
+body {
+    background-color: var(--papaya-whip);
+    color: var(--deep-space-blue);
 }
 
-/* you know what i just discovered that i can use variables in css and i am so happy about it. */
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+nav {
+    padding: var(--nav-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-/* Yet i found somthing in settings carret cursor animations and smooth scrolling it makes my vs code experience much better like this vs code is built on mac os system so smooth so fluid and so much crazy line shifting and ending animations */
+nav button {
+    background-color: var(--brick-red);
+    border: none;
+    outline: none;
+    color: var(--papaya-whip);
+    padding: var(--padding-m) var(--padding-l);
+    cursor: pointer;
+    border-radius: var(--border-radius-m);
+}
+
+nav button:hover {
+    background-color: var(--molten-lava);
+}
+
+nav .left {
+    color: var(--deep-space-blue);
+    font-weight: bold;
+}
+
+section {
+    padding: var(--section-padding);
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: var(--padding-xxl);
+}
+
+section .task-column {
+    background-color: var(--papaya-whip);
+    flex-grow: 1;
+    border-radius: var(--border-radius-m);
+    border: 3px solid var(--steel-blue);
+    overflow: hidden;
+}
+section .task-column .heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-m) var(--padding-l);
+    color: var(--papaya-whip);
+}
+
+section .task-column.todo .heading {
+    background-color: var(--steel-blue);
+}
+
+section .task-column.in-progress .heading {
+    background-color: var(--brick-red);
+}
+
+section .task-column.done .heading {
+    background-color: var(--molten-lava);
+}
