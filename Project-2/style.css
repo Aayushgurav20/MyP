@@ -13,8 +13,6 @@ body {
 
 
 :root {
-    --bg-color: rgb(39, 38, 38);
-    --primary-text-color: rgb(223, 223, 223);
     --primary-font-family: 'JetBrains Mono', sans-serif;
 
     /* padding elements */
@@ -24,9 +22,6 @@ body {
     --padding-l: 15px;
     --padding-xl: 20px;
     --padding-xxl: 30px;
-
-    /* button */
-    --bg-button-color: rgb(55, 55, 55);
 
     /* border radius */
     --border-radius-s: 5px;
@@ -38,25 +33,29 @@ body {
     /* section padding */
     --section-padding: 20px;
 
-    /* pallete color scheme */
-    --molten-lava: #780000ff;
-    --brick-red: #c1121fff;
-    --papaya-whip: #fdf0d5ff;
-    --deep-space-blue: #003049ff;
-    --steel-blue: #669bbcff;
+    /* palette (slate - minimal dark) */
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
 
-    /* palette usage map
-       --papaya-whip      -> page + column background, button text, heading text
-       --deep-space-blue  -> body text, "Kanban" logo
-       --brick-red        -> "Add New Task" button bg, In Progress heading bar
-       --molten-lava      -> button hover bg, Done heading bar
-       --steel-blue       -> column border, To Do heading bar
-    */
+    /* status colors (soft neutral) */
+    --todo: #cbd5e1;
+    --in-progress: #b0bccd;
+    --done: #94a3b8;
+
+    /* your original variables, now themed */
+    --bg-color: var(--bg);
+    --primary-text-color: var(--text);
+    --bg-button-color: var(--accent);
 }
 
 body {
-    background-color: var(--papaya-whip);
-    color: var(--deep-space-blue);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
 }
 
 main {
@@ -73,22 +72,24 @@ nav {
 }
 
 nav button {
-    background-color: var(--brick-red);
+    background-color: var(--bg-button-color);
     border: none;
     outline: none;
-    color: var(--papaya-whip);
+    color: var(--text);
     padding: var(--padding-m) var(--padding-l);
     cursor: pointer;
     border-radius: var(--border-radius-m);
 }
 
 nav button:hover {
-    background-color: var(--molten-lava);
+    background-color: var(--accent-hover);
 }
 
 nav .left {
-    color: var(--deep-space-blue);
+    color: var(--primary-text-color);
     font-weight: bold;
+    font-size: 20px;
+    padding: var(--padding-m) var(--padding-l)
 }
 
 section {
@@ -100,10 +101,10 @@ section {
 }
 
 section .task-column {
-    background-color: var(--papaya-whip);
+    background-color: var(--surface);
     flex-grow: 1;
     border-radius: var(--border-radius-m);
-    border: 3px solid var(--steel-blue);
+    border: 1px solid var(--border);
     overflow: hidden;
 }
 section .task-column .heading {
@@ -111,17 +112,26 @@ section .task-column .heading {
     display: flex;
     justify-content: space-between;
     padding: var(--padding-m) var(--padding-l);
-    color: var(--papaya-whip);
+    color: var(--bg);
 }
 
 section .task-column.todo .heading {
-    background-color: var(--steel-blue);
+    background-color: var(--todo);
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding-m);
 }
 
 section .task-column.in-progress .heading {
-    background-color: var(--brick-red);
+    background-color: var(--in-progress);
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding-m);
 }
 
 section .task-column.done .heading {
-    background-color: var(--molten-lava);
+    background-color: var(--done);
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding-m);
 }
