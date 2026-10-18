@@ -51,6 +51,9 @@ body {
     --bg-color: var(--bg);
     --primary-text-color: var(--text);
     --bg-button-color: var(--accent);
+
+    /* Delete button color */
+    --delete-button-color: #c23632;
 }
 
 body {
@@ -102,10 +105,14 @@ section {
 
 section .task-column {
     background-color: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m); 
     flex-grow: 1;
     border-radius: var(--border-radius-m);
     border: 1px solid var(--border);
     overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 section .task-column .heading {
     width: 100%;
@@ -134,4 +141,51 @@ section .task-column.done .heading {
     display: flex;
     flex-direction: row;
     gap: var(--padding-m);
+}
+
+
+section .task-column.todo .task-card{
+    background-color: var(--todo);
+    padding: var(--padding-s) var(--padding-m);
+    margin: var(--padding-s) var(--padding-m);
+    color: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+}
+
+section .task-column.todo .task-card button{
+    /* font-size: 15px; */
+    padding: var(--padding-s) var(--padding-m);
+    border-radius: var(--border-radius-m);
+    cursor: pointer;
+
+    /* trying some new style */
+    align-self: flex-end;
+    border: 2px solid var(--border);
+    background-color: var(--delete-button-color);
+    color: var(--primary-text-color);
+}
+
+section .task-column.in-progress .task-card{
+    cursor: grab;
+}
+
+section .task-column.done .task-card{
+    cursor: grab;
+}
+
+section .task-column.task-column.in-progress.hover-over{
+    scale: 1.03;
+    border: 2px solid var(--accent-hover);
+}
+section .task-column.todo.hover-over{
+    scale: 1.03;
+    border: 2px solid var(--accent-hover);
+}
+section .task-column.done.hover-over{
+    scale: 1.03;
+    border: 2px solid var(--accent-hover);
 }

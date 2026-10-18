@@ -15,19 +15,26 @@
             <div class="right"><button>Add New Task</button></div>
         </nav>
         <section class="board">
-            <div class="task-column todo">
+            <div id="todo" class="task-column todo">
                 <div class="heading">
                     <div class="left">To Do</div>
                     <div class="right">Count</div>
                 </div>
+                <div draggable="true" class="task-card">
+                    <div class="title">
+                        <h2>Task 1</h2>
+                    </div>
+                    <p>Description for Task 1</p>
+                    <button>Delete</button>
+                </div>
             </div>
-            <div class="task-column in-progress">
+            <div id="in-progress" class="task-column in-progress">
                 <div class="heading">
                     <div class="left">In Progress</div>
                     <div class="right">Count</div>
                 </div>
             </div>
-            <div class="task-column done">
+            <div id="done" class="task-column done">
                 <div class="heading">
                     <div class="left">Done</div>
                     <div class="right">Count</div>
