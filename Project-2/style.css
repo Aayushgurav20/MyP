@@ -144,8 +144,8 @@ section .task-column.done .heading {
 }
 
 
-section .task-column.todo .task-card{
-    background-color: var(--todo);
+/* Card style for ALL columns (not just To Do) */
+section .task-column .task-card{
     padding: var(--padding-s) var(--padding-m);
     margin: var(--padding-s) var(--padding-m);
     color: var(--bg);
@@ -154,38 +154,33 @@ section .task-column.todo .task-card{
     display: flex;
     flex-direction: column;
     gap: var(--padding-m);
+    cursor: grab;
 }
 
-section .task-column.todo .task-card button{
-    /* font-size: 15px; */
+/* Delete button style for ALL columns (not just To Do) */
+section .task-column .task-card button{
     padding: var(--padding-s) var(--padding-m);
     border-radius: var(--border-radius-m);
     cursor: pointer;
-
-    /* trying some new style */
     align-self: flex-end;
     border: 2px solid var(--border);
     background-color: var(--delete-button-color);
     color: var(--primary-text-color);
 }
 
+/* Card background changes to match the column it sits in */
+section .task-column.todo .task-card{
+    background-color: var(--todo);
+}
 section .task-column.in-progress .task-card{
-    cursor: grab;
+    background-color: var(--in-progress);
 }
-
 section .task-column.done .task-card{
-    cursor: grab;
+    background-color: var(--done);
 }
 
-section .task-column.task-column.in-progress.hover-over{
-    scale: 1.03;
-    border: 2px solid var(--accent-hover);
-}
-section .task-column.todo.hover-over{
-    scale: 1.03;
-    border: 2px solid var(--accent-hover);
-}
-section .task-column.done.hover-over{
+/* Highlight column while a card is dragged over it */
+section .task-column.hover-over{
     scale: 1.03;
     border: 2px solid var(--accent-hover);
 }
